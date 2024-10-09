@@ -8,19 +8,18 @@
 import SwiftUI
 
 @main
-struct lab02App: App {
+struct LAB02App: App {
     @State var isLoggedin: Bool = false
-    
+
     var body: some Scene {
         WindowGroup {
-            if isLoggedin {
-                NavigationView {
-                    HomeView(isLoggedin: $isLoggedin)
+            NavigationView {
+                if isLoggedin {
+                    ContentView(isLoggedin: $isLoggedin)
+                } else {
+                    LoginView(isLoggedin: $isLoggedin)
                 }
-            } else {
-                LoginView(isLoggedin: $isLoggedin)
             }
         }
     }
 }
-

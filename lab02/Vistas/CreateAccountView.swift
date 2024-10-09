@@ -70,7 +70,14 @@ struct CreateAccountView: View {
             showError = true
         } else {
             showError = false
-            print("New account created with username: \(newUsername)")
+            CoreDataManager.shared.saveUser(
+                firstName: firstName,
+                lastName: lastName,
+                email: email,
+                username: newUsername,
+                password: newPassword
+            )
+            print("New account created and saved with username: \(newUsername)")
         }
     }
 }
